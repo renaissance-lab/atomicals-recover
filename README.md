@@ -4,54 +4,59 @@ Sometimes the reveal transaction is not sent out and the funds are locked to an 
 
 ## Operation Example
 An example of recovery is as follows:
-Commit transaction: https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
-Reveal transaction: https://mempool.space/zh/tx/ba4b74892aa0a835520d0db041ac97fca457b58271b936e608ac8f35c00fd7c0
+- Commit transaction: https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
+- Reveal transaction: https://mempool.space/zh/tx/ba4b74892aa0a835520d0db041ac97fca457b58271b936e608ac8f35c00fd7c0
 
 ## Steps
-1. Find the commit transaction information for minting, for example, https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
-Fill in the information based on the transaction information
-lockedUtxo:
-hash: "0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f"
-index: 0
-amount: 3700
+1. Find the commit transaction information for minting: 
+https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
+- Fill in the information based on the transaction information
+
+  - lockedUtxo:
+        - hash: "0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f"
+        - index: 0
+        - amount: 3700
 
 2. Find the private key of the funding address for the coin minting transaction (the private key and public key of the bc1p04kwemnk0ht38csrc2j7qtx0dqv8kzl0u4vxzsnqg9cdl0rs5aaq3pc8qr address in the example).
 
-Fill in the following information in the config file:
-locked:
-address: "bc1pameu4wg32ud0u46fxnrzg9d2gm3mhldlcz79gh94xq5jtslvccdq904zhx" // intermediate address for coin minting
-WIF: // private key of the funding address for coin minting transaction
-pubkey: "a61e002383194e6a336aeba0189d10ec93e8e14d3e313cc5e4860c2c10b3d46c" // public key of the funding address for coin minting transaction
+- Fill in the following information in the config file:
+
+    - locked:
+        - address: "bc1pameu4wg32ud0u46fxnrzg9d2gm3mhldlcz79gh94xq5jtslvccdq904zhx" // intermediate address for coin minting
+        - WIF: // private key of the funding address for coin minting transaction
+        - pubkey: "a61e002383194e6a336aeba0189d10ec93e8e14d3e313cc5e4860c2c10b3d46c" // public key of the funding address for coin minting transaction
 
 3. Find the time and nonce information for the coin minting, and fill in
-lockedScript:
-time: 1709005980
-nonce : 1
+    - lockedScript:
+        - time: 1709005980
+        - nonce : 1
 
 4. Find an uncolored UTXO from the funding address as the tx fee and fill in the config file.
-funding: // funding address
-address: "bc1p04kwemnk0ht38csrc2j7qtx0dqv8kzl0u4vxzsnqg9cdl0rs5aaq3pc8qr"
-WIF: ""
-fundingUtxo: // UTXO information for payment and receipt of fees
-hash: "88888f7614273607e234787b53a14d15465476a3c7f36870365cacbcba4761eb"
-index: 1
-amount: 14957
+
+- funding: // funding address
+- address: "bc1p04kwemnk0ht38csrc2j7qtx0dqv8kzl0u4vxzsnqg9cdl0rs5aaq3pc8qr"
+- WIF: ""
+- fundingUtxo: // UTXO information for payment and receipt of fees
+- hash: "88888f7614273607e234787b53a14d15465476a3c7f36870365cacbcba4761eb"
+- index: 1
+- amount: 14957
 
 5. Fill in other information
-redeemAddress: "bc1prrkv0qy075asknchdtk8zlnw4le0nc4uw3nssxsmnaf62r654g9qhy2y76" // address to recover funds
-feeRate : 20 // transaction fee in satoshis
-network: 1 // mainnet
-token: // coin pair information for coin casting
-protocol: atom
-opType: dmt
-bitworkc: "0000"
-bitworkr: ""
-mint_ticker: "photon"
-mint_need_amount: 1000
+- redeemAddress: "bc1prrkv0qy075asknchdtk8zlnw4le0nc4uw3nssxsmnaf62r654g9qhy2y76" // address to recover - funds
+- feeRate : 20 // transaction fee in satoshis
+- network: 1 // mainnet
+- token: // coin pair information for coin casting
+    - protocol: atom
+    - opType: dmt
+    - bitworkc: "0000"
+    - bitworkr: ""
+    - mint_ticker: "photon"
+    - mint_need_amount: 1000
 
 6. Execute the program:
-go build
-./atomicals-recover
-Copy  output after "rawtx:" ,then broadcast the raw transaction data to the chain.
+- go build
+- ./atomicals-recover
+- Copy  output after "rawtx:" ,then broadcast the raw transaction data to the chain.
 
 
+Buy me coffee : bc1q3fq7zfzgu98nf6h9cupffcr58a4xpzjq9snshy
