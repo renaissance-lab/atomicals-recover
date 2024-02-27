@@ -1,0 +1,31 @@
+locked: 
+  address: "bc1pameu4wg32ud0u46fxnrzg9d2gm3mhldlcz79gh94xq5jtslvccdq904zhx"
+  WIF: ""
+  pubkey: "a61e002383194e6a336aeba0189d10ec93e8e14d3e313cc5e4860c2c10b3d46c"
+lockedUtxo:
+  hash: "0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f"
+  index: 0
+  amount: 3700
+lockedScript:
+  time: 1709005980
+  nonce : 1
+funding: 
+  address: "bc1p04kwemnk0ht38csrc2j7qtx0dqv8kzl0u4vxzsnqg9cdl0rs5aaq3pc8qr"
+  WIF: ""
+fundingUtxo:
+  hash: "88888f7614273607e234787b53a14d15465476a3c7f36870365cacbcba4761eb"
+  index: 1
+  amount: 14957
+redeemAddress: "bc1prrkv0qy075asknchdtk8zlnw4le0nc4uw3nssxsmnaf62r654g9qhy2y76"
+feeRate : 20
+network: 1
+token:
+  protocol: atom
+  opType: dmt
+  bitworkc: "0000"
+  bitworkr: ""
+  mint_ticker: "photon"
+  mint_need_amount: 1000
+
+
+  
