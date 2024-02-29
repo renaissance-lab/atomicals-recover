@@ -3,16 +3,17 @@
 Sometimes the reveal transaction is not sent out and the funds are locked to an intermediate address when minting inscriptions. In other cases, during the minting process, we may accidentally UTXOs  with colored coins for minting. At this time, we need to try to preserve the colored coins, use a new UTXO as for tx fee, send a reveal transaction to retain the original colored coins while minting new colored coins.
 
 ## Acknowledge 
-  Thanks to [@atomicals](https://github.com/atomicals) technical support and lyluckyJJ's sponsor.
+  Thanks to [@atomicals](https://github.com/atomicals) technical support and [lyluckyJJ's](https://twitter.com/lyluckyJJ) sponsor.
 
 ## Operation Example
 An example of recovery is as follows:
-- Commit transaction: https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
-- Reveal transaction: https://mempool.space/zh/tx/ba4b74892aa0a835520d0db041ac97fca457b58271b936e608ac8f35c00fd7c0
+- Commit transaction: [0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f](https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f)
+- Reveal transaction: [ba4b74892aa0a835520d0db041ac97fca457b58271b936e608ac8f35c00fd7c0](https://mempool.space/zh/tx/ba4b74892aa0a835520d0db041ac97fca457b58271b936e608ac8f35c00fd7c0)
 
 ## Steps
 1. Find the commit transaction information for minting: 
-https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f
+[0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f](https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f)
+
 - Fill in config.yml based on the transaction information
     - lockedUtxo:
         - hash: "0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b588bf3c3471f"
@@ -64,5 +65,5 @@ https://mempool.space/zh/tx/0000c81399da5e448a72b07d5b0358c84d595fb7819bb438ba9b
 7. Others :
     How to setup golang env Pls refer to [golang docs](https://go.dev/doc/tutorial/getting-started)
 
-    
+
 Buy me coffee : bc1pucgnh3j6sy2r9dk9978rcc4pp0p0n0tuft0c0vmjwn8wamkrtzms8gx43u
